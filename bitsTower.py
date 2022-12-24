@@ -92,6 +92,14 @@ class BITSTower:
 				#Check the numbers of discs is equal to the number of days
 				if(int(numberOfDays)!=len(discs)):
 					raise Exception("Invalid Input Format")
+				#Check for duplicates in the discs size
+				discSet = set(discs)
+				if(len(discs)!= len(discSet)):
+					raise Exception("Invalid Input Format")
+				#check if the max disc size is greater than given input N
+				maxVal = max(discs)
+				if(max(discs) > self.days):
+					raise Exception("Invalid Input Format")
 			inputfile.close()
 			return True
 		except FileNotFoundError:
